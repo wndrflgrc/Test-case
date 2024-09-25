@@ -1,0 +1,22 @@
+{
+  "name": "test-case",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wndrflgrc/Test-case.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wndrflgrc/Test-case/issues"
+  },
+  "homepage": "https://github.com/wndrflgrc/Test-case#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^22.7.0"
+  }
+}
