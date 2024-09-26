@@ -13,4 +13,11 @@ export class LobbyNavigation {
   login(username: string, password: string) {
     return this.loginPage.login(username, password);
   }
+  doubleClickLogin(username: string, password: string) {
+    return this.loginPage.doubleClickLogin(username, password);
+  }
+
+  temporaryClickLanguage() {
+    return this.loginPage.temporaryClickLanguage();
+  }
 }
