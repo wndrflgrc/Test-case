@@ -1,5 +1,5 @@
 import { LobbyManager } from './../page-objects/lobbyManager';
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 
 test.describe('Successful Login', () => {
   test.beforeEach(async ({ page }) => {
@@ -12,10 +12,16 @@ test.describe('Successful Login', () => {
     await lobbyManager.performLogin.login('testdevuser005', '123456');
   });
 
-  test('Successful login with case sensitivity in id', async ({ page }) => {
-    const lobbyManager = new LobbyManager(page);
-    await lobbyManager.performLogin.login('TestDevUser005', '123456');
-  });
+  test(
+    'Successful login with case sensitivity in id',
+    {
+      tag: '@This is getting parsed to lowercase so thats that',
+    },
+    async ({ page }) => {
+      const lobbyManager = new LobbyManager(page);
+      await lobbyManager.performLogin.login('TestDevUser005', '123456');
+    }
+  );
 });
 
 test.describe('Unsuccessful login', () => {
@@ -47,11 +53,12 @@ test.describe('Unsuccessful login', () => {
     async ({ page }) => {
       const lobbyManager = new LobbyManager(page);
       await lobbyManager.performLogin.login('testdevuser005', '12345');
+      await page.waitForTimeout(4000);
     }
   );
 
   test(
-    'Double click. This got throught which shouldnt happen',
+    'Double click. This got through which shouldnt happen',
     {
       tag: '@If an action/s is performed and not yet finished loading any form of subsequent action should return error',
     },
